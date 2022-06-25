@@ -12,15 +12,12 @@
 
 package com.niyredra.notjustnote.modules.sys.service.impl;
 
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.niyredra.notjustnote.common.exception.ArException;
-import com.niyredra.notjustnote.common.utils.DateUtils;
 import com.niyredra.notjustnote.modules.sys.dao.SysCaptchaDao;
 import com.niyredra.notjustnote.modules.sys.model.SysCaptcha;
 import com.niyredra.notjustnote.modules.sys.service.SysCaptchaService;
 import com.wf.captcha.GifCaptcha;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.awt.image.BufferedImage;

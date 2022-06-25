@@ -17,28 +17,25 @@ import org.junit.jupiter.api.Test;
 import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class DateUtilsTest {
+class DateTimeUtilsTest {
 
     @Test
     void format() throws ParseException {
         System.out.println(
-                DateUtils.format("2022-02-01")
+                DateTimeUtils.format("2022-02-01")
         );
 
         System.out.println(
-                DateUtils.format("2022-02-01 23:20:09")
+                DateTimeUtils.format("2022-02-01 23:20:09")
         );
 
         System.out.println(
-                DateUtils.format(new Date())
+                DateTimeUtils.format(new Date())
         );
 
         System.out.println(
-                DateUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss")
+                DateTimeUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss")
         );
     }
 
@@ -46,22 +43,22 @@ class DateUtilsTest {
     void getRange() {
         System.out.println(
                 Arrays.toString(
-                        Arrays.stream(DateUtils.getWeekRange(1))
-                                .map(DateUtils::format)
+                        Arrays.stream(DateTimeUtils.getWeekRange(1))
+                                .map(DateTimeUtils::format)
                                 .toArray()
                 )
         );
         System.out.println(
                 Arrays.toString(
-                        Arrays.stream(DateUtils.getMonthRange(0))
-                                .map(DateUtils::format)
+                        Arrays.stream(DateTimeUtils.getMonthRange(0))
+                                .map(DateTimeUtils::format)
                                 .toArray()
                 )
         );
         System.out.println(
                 Arrays.toString(
-                        Arrays.stream(DateUtils.getYearRange(1))
-                                .map(DateUtils::format)
+                        Arrays.stream(DateTimeUtils.getYearRange(1))
+                                .map(DateTimeUtils::format)
                                 .toArray()
                 )
         );
