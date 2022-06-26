@@ -13,7 +13,10 @@
 package com.niyredra.notjustnote.common.global.page;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.niyredra.notjustnote.common.xss.SQLFilter;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Map;
 
@@ -25,7 +28,7 @@ import java.util.Map;
 public class Query<T> {
 
     public IPage<T> getPage(Map<String, Object> params) {
-        return null;
+        return getPage(params, null, false);
     }
 
     public IPage<T> getPage(Map<String, Object> params, String defaultOrderField, boolean iaAsc) {
@@ -42,8 +45,20 @@ public class Query<T> {
         params.put(PageConstant.PAGE, page);
 
         // 排序 防止SQL注入
-//        String orderField = SQLFilter
-        return null;
+        String orderField = SQLFilter.injectFilter((String) params.get(PageConstant.ORDER_FIELD));
+        String order = (String) params.get(PageConstant.ORDER);
+
+        if (StringUtils.isNotEmpty(orderField)
+                && StringUtils.isNotEmpty(order))
+            if (PageConstant.ASC.equalsIgnoreCase(order))
+                return page.addOrder(OrderItem.asc(orderField));
+            else return page.addOrder(OrderItem.desc(orderField));
+
+        if (StringUtils.isBlank(defaultOrderField)) return page;
+        if (iaAsc) page.addOrder(OrderItem.asc(orderField));
+        else page.addOrder(OrderItem.desc(orderField));
+
+        return page;
     }
 
 }
