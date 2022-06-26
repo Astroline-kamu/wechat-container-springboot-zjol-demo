@@ -14,8 +14,8 @@ package com.niyredra.notjustnote.modules.sys.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.niyredra.notjustnote.modules.sys.model.SysCaptcha;
-
-import java.awt.image.BufferedImage;
+import com.wf.captcha.GifCaptcha;
+import com.wf.captcha.base.Captcha;
 
 /**
  * 验证码相关业务
@@ -25,12 +25,28 @@ import java.awt.image.BufferedImage;
 public interface SysCaptchaService extends IService<SysCaptcha>{
 
     /**
-     * 获取图片验证码
+     * 数字计算验证码
      *
      * @param uuid uuid
      * @return 验证码图片
      */
-    BufferedImage getCaptcha(String uuid);
+    Captcha getArithmeticCaptcha(String uuid);
+
+    /**
+     * 中文验证码
+     *
+     * @param uuid uuid
+     * @return 验证码图片
+     */
+    Captcha getChineseCaptcha(String uuid);
+
+    /**
+     * 英文字母验证码
+     *
+     * @param uuid uuid
+     * @return 验证码图片
+     */
+    Captcha getSpecCaptcha(String uuid);
 
     /**
      * 验证码校验

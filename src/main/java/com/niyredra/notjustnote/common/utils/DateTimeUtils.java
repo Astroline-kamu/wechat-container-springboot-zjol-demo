@@ -13,6 +13,7 @@
 package com.niyredra.notjustnote.common.utils;
 
 
+import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 
@@ -61,7 +62,7 @@ public class DateTimeUtils {
      * @throws ParseException 解析异常
      */
     public static Date format(String date) throws ParseException {
-        if (date.isBlank()) return null;
+        if (StringUtils.isBlank(date)) return null;
         return format(date, DATE_PATTERN);
     }
 
@@ -74,7 +75,7 @@ public class DateTimeUtils {
      * @throws ParseException 解析异常
      */
     public static Date format(String date, String pattern) throws ParseException {
-        if (date.isBlank()) return null;
+        if (StringUtils.isBlank(date)) return null;
         return new SimpleDateFormat(pattern).parse(date);
     }
 

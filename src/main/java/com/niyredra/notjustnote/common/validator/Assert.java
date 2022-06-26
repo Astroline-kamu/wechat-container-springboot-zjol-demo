@@ -13,7 +13,7 @@
 package com.niyredra.notjustnote.common.validator;
 
 
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import com.niyredra.notjustnote.common.exception.ArException;
 
 public interface Assert {
