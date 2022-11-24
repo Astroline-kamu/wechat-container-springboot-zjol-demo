@@ -19,7 +19,8 @@ spring:
       # https://blog.csdn.net/weixin_55181056/article/details/124164782 解决MySQL saveBatch插入效率低下
       url: jdbc:mysql://localhost:3306/not_just_note?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true&rewriteBatchedStatements=true
       username: root
-      password: Astroline^...?
+      password: Astroline123
+#      password: Astroline^...?
       driver-class-name: com.mysql.cj.jdbc.Driver
       initial-size: 10
       max-active: 100
